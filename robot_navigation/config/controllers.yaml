@@ -1,0 +1,27 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 50
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    diff_drive_controller:
+      type: diff_drive_controller/DiffDriveController
+
+diff_drive_controller:
+  ros__parameters:
+    left_wheel_names: ['lw']
+    right_wheel_names: ['rw']
+    wheels_per_side: 1
+    wheel_separation: 0.1768
+    wheel_radius: 0.034
+
+    use_stamped_vel: true
+    publish_rate: 50.0
+    odom_frame_id: odom
+    base_frame_id: robot
+    pose_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.03]
+    twist_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.03]
+    open_loop: true
+    cmd_vel_timeout: 0.5
+    velocity_rolling_window_size: 10
